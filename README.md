@@ -1,17 +1,19 @@
 Squeak 5.3 Repl.it Install
 ==========================
-This file on Repl.it: https://replit.com/@jdougan1/Squeak53ReplitInstall#README.md
+* This file on Repl.it: https://replit.com/@jdougan1/Squeak53ReplitInstall#README.md
+* This file on Github: https://github.com/jdougan/Squeak53ReplitInstall/blob/master/README.md
 
 After seeing the GNU Smalltalk installation for Repl.it ( https://replit.com/@YoussefEl17/Smalltalk forked from https://replit.com/@ConnorBrewster/Zig ) I was wondering if I could get a recent Squeak running.
 
 How hard could it possibly be?
 
 This uses Nix, because that is what the GST installation used and it looks to be the easiest way to get any needed extra support tools installed as explained in https://blog.replit.com/nix and https://docs.replit.com/repls/nix .
-Unfortunately the Nix installation of Squeak is a 4.10 that comes without images, changes, or sources.
+Unfortunately the Nix installation of Squeak claims to be a 4.10.2.2614(?) that comes without image, changes, or source files.
 I got it to work but I wasn't happy with it, so I just brute forced the issue by downloading the Squeak 5.3 installation from files.squeak.org. 
 
-There is a timeout system for "inactive" repls with an auto restart feature if you are paying (https://docs.replit.com/repls/always-on).
-So save frequently or get one of the browser plugins that will keep events going at it to keep the session alive.
+There is a timeout system for "inactive" repls with an optional auto restart feature if you are paying
+(https://docs.replit.com/repls/always-on).
+So save frequently or get one of the apps/code that will keep events going at it to keep the session alive.
 This is used to run a lot of discord bots.
 
 With a free account you are limited to around 500MB, you may want to delete the zip file to regain some space.
