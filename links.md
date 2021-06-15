@@ -23,7 +23,7 @@ Useful Links
   * https://replit.com/talk/learn/How-to-keep-your-discordant-bot-alive-in-Replit-2020/46432
   * https://replit.com/talk/ask/Keeping-repl-permanently-alive/28821
   * 
-* The Squeak in Nix. Looks like it is derived from an Ubuntu package.
+* Squeak in Nix. Looks like it is derived from an Ubuntu package.
   * https://search.nixos.org/packages?channel=21.05&show=squeak&from=0&size=50&sort=relevance&query=squeak
 
 

@@ -1,0 +1,2 @@
+mv install.sh build
+run = "./bin/squeak -vm-display-null -vm-sound-null  scripting.image main.st"

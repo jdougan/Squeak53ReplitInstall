@@ -1,5 +1,5 @@
-Squeak 5.3 Repl.it Install
-==========================
+Squeak 5.3 Repl.it Install 2.0
+===============================
 John Dougan <jdougan@acm.org>
 
 * This file on Repl.it: https://replit.com/@jdougan1/Squeak53ReplitInstall#README.md
@@ -23,29 +23,32 @@ Warning: the "Download as zip" option will skip the Squeak installation files!
 
 This installer relies on Repl.it's built in VNC support, see https://docs.replit.com/repls/vnc for details.
 No audio by default, but it can be done via PulseAudio, see https://docs.replit.com/repls/audio .
-In later versions I want to make this run scripts headless or use the Squeak internal VNC server.
+Warning: If the repl is public it is possible to watch what is happening. Keep secrets in environment variables.
 
-Loading Squeak on a Repl.it
-----------------------------
-* Light up a new repl, language Nix.
-  * You can also fork my repl, it has installtion scripts.
-    * https://replit.com/@jdougan1/Squeak53ReplitInstall
-    * The install.sh and clean.sh scripts do these steps and the changes to .replit is already present
-  * Other language srepls (bash, etc.) might work, but untested.
-* Go to the shell prompt (These steps are in the install.sh script in the Squeak53ReplitInstall repl)
-  * wget https://files.squeak.org/5.3/Squeak5.3-19435-64bit/Squeak5.3-19435-64bit-202003021730-Linux.zip 
-  * unzip  Squeak5.3-19435-64bit-202003021730-Linux.zip
-  * mv Squeak5.3-19435-64bit-202003021730-Linux sq
+Building this repl
+-------------------
+* Fork this repl
+* Go to the shell prompt
+  * make all   # downloads and unzips distribution
+  * make install  # cp files to final locations
 * Test at the shell prompt
-  * cd sq
-  * sh ./squeak.sh
-  * This should show the Repl.it VNC session running the squeak image
+  * make teststart
+  * This should show the Repl.it VNC session running the squeak image. You may need to drag the panes around to see it.
   * Drag the VNC window pane edges to change the size of the VNC area.
 * Exit Squeak
-* Edit file .replit (This may already be done if you forked)
-  * run = "(cd sq ; ./bin/squeak ./shared/Squeak5.3-19435-64bit.image)"
 * Test again by hitting the run button.
-* Thes running Squeak is shareable via VNC. 
+* The run button should change to show it is running, hit it again to terminate Squeak. 
+* Useful make productions
+  * make clean    # deletes the download and the unzipped dir
+  * make uninstall # deletes the files installed by make install 
+  * make realclean  # scrubs it down to the bare metal, except saved .images, .changes, and .st  scripts
+  * make squeak-clean  # delete squeak cache files and directories
+	* make conf-script  # overwrite .replit with config to start running the main.st script while headless 
+	* make conf-gui  # overwrite .replit with config to run in GUI mode via the VNC session
+
+run = "./bin/squeak -vm-display-X11 -fullscreen -vm-sound-null  Squeak5.3-19435-64bit.image "
+
+run = "./bin/squeak -vm-display-X11 -fullscreen -vm-sound-null  scripting.image "
 
 -- 
 John Dougan <jdougan@acm.org>
