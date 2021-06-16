@@ -7,7 +7,7 @@ SHELL = /bin/sh
 #
 all: archive/Squeak5.3-19435-64bit-202003021730-Linux
 
-install: squeak.sh
+install: Squeak5.3-19435-64bit.image
 
 realclean :  uninstall clean squeak-clean
 
@@ -28,13 +28,13 @@ archive/Squeak5.3-19435-64bit-202003021730-Linux.zip :
 archive/Squeak5.3-19435-64bit-202003021730-Linux : archive/Squeak5.3-19435-64bit-202003021730-Linux.zip
 	(cd archive ; unzip Squeak5.3-19435-64bit-202003021730-Linux.zip ; touch Squeak5.3-19435-64bit-202003021730-Linux)
 
-squeak.sh : archive/Squeak5.3-19435-64bit-202003021730-Linux
+Squeak5.3-19435-64bit.image : archive/Squeak5.3-19435-64bit-202003021730-Linux
 	cp -r archive/Squeak5.3-19435-64bit-202003021730-Linux/shared/* .
 	cp -r archive/Squeak5.3-19435-64bit-202003021730-Linux/bin .
 	cp -r archive/Squeak5.3-19435-64bit-202003021730-Linux/squeak.sh .
 	chmod u+x squeak.sh
 
-teststart:
+teststart: Squeak5.3-19435-64bit.image
 	$(SHELL) ./squeak.sh Squeak5.3-19435-64bit.image
 
 conf-script:
@@ -42,4 +42,7 @@ conf-script:
 
 conf-gui:
 	cp -r ./build/replit-gui .replit
+
+scripting.image: Squeak5.3-19435-64bit.image
+	./bin/squeak -vm-display-null -vm-sound-null  Squeak5.3-19435-64bit.image build/loadreplitsupport.st
 
