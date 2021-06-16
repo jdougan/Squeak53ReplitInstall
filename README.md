@@ -43,8 +43,8 @@ Building this repl
   * make uninstall # deletes the files installed by make install 
   * make realclean  # scrubs it down to the bare metal, except saved .images, .changes, and .st  scripts
   * make squeak-clean  # delete squeak cache files and directories
-	* make conf-script  # overwrite .replit with config to start running the main.st script while headless 
-	* make conf-gui  # overwrite .replit with config to run in GUI mode via the VNC session
+  * make conf-script  # overwrite .replit with config to start running the main.st script while headless 
+  * make conf-gui  # overwrite .replit with config to run in GUI mode via the VNC session
 
 run = "./bin/squeak -vm-display-X11 -fullscreen -vm-sound-null  Squeak5.3-19435-64bit.image "
 
