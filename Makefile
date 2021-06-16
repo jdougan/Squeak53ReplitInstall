@@ -33,6 +33,7 @@ Squeak5.3-19435-64bit.image : archive/Squeak5.3-19435-64bit-202003021730-Linux
 	cp -r archive/Squeak5.3-19435-64bit-202003021730-Linux/bin .
 	cp -r archive/Squeak5.3-19435-64bit-202003021730-Linux/squeak.sh .
 	chmod u+x squeak.sh
+	touch Squeak5.3-19435-64bit.image
 
 teststart: Squeak5.3-19435-64bit.image
 	$(SHELL) ./squeak.sh Squeak5.3-19435-64bit.image
