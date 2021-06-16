@@ -29,6 +29,7 @@ Building this repl
 -------------------
 * Fork this repl
 * Go to the shell prompt
+  * make conf-gui # sets up replit run command
   * make all   # downloads and unzips distribution
   * make install  # cp files to final locations
 * Test at the shell prompt
@@ -44,11 +45,16 @@ Building this repl
   * make realclean  # scrubs it down to the bare metal, except saved .images, .changes, and .st  scripts
   * make squeak-clean  # delete squeak cache files and directories
   * make conf-script  # overwrite .replit with config to start running the main.st script while headless 
+    * run = "./bin/squeak -vm-display-null -vm-sound-null  scripting.image"
   * make conf-gui  # overwrite .replit with config to run in GUI mode via the VNC session
+    * run = "./bin/squeak -vm-display-X11 -vm-sound-null  scripting.image "
 
-run = "./bin/squeak -vm-display-X11 -fullscreen -vm-sound-null  Squeak5.3-19435-64bit.image "
-
+Snippits
+--------
+```
 run = "./bin/squeak -vm-display-X11 -fullscreen -vm-sound-null  scripting.image "
 
+run = "./bin/squeak -vm-display-X11 -fullscreen -vm-sound-pulse  Squeak5.3-19435-64bit.image "
+```
 -- 
 John Dougan <jdougan@acm.org>

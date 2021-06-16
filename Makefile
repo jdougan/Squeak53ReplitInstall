@@ -10,6 +10,7 @@ all: archive/Squeak5.3-19435-64bit-202003021730-Linux
 install: Squeak5.3-19435-64bit.image
 
 realclean :  uninstall clean squeak-clean
+	rm -rf archive
 
 clean: 
 	rm -rf archive/Squeak5.3-19435-64bit-202003021730-Linux.zip
@@ -21,11 +22,10 @@ uninstall:
 squeak-clean:
 	rm -rf github-cache package-cache SqueakDebug.log
 
-archive/Squeak5.3-19435-64bit-202003021730-Linux.zip :
-	mkdir -p archive
+archive/Squeak5.3-19435-64bit-202003021730-Linux.zip : installdirs
 	(cd archive ; wget --no-check-certificate https://files.squeak.org/5.3/Squeak5.3-19435-64bit/Squeak5.3-19435-64bit-202003021730-Linux.zip ; touch Squeak5.3-19435-64bit-202003021730-Linux.zip )
 
-archive/Squeak5.3-19435-64bit-202003021730-Linux : archive/Squeak5.3-19435-64bit-202003021730-Linux.zip
+archive/Squeak5.3-19435-64bit-202003021730-Linux : installdirs  archive/Squeak5.3-19435-64bit-202003021730-Linux.zip
 	(cd archive ; unzip Squeak5.3-19435-64bit-202003021730-Linux.zip ; touch Squeak5.3-19435-64bit-202003021730-Linux)
 
 Squeak5.3-19435-64bit.image : archive/Squeak5.3-19435-64bit-202003021730-Linux
@@ -46,3 +46,5 @@ conf-gui:
 scripting.image: Squeak5.3-19435-64bit.image
 	./bin/squeak -vm-display-null -vm-sound-null  Squeak5.3-19435-64bit.image build/loadreplitsupport.st
 
+installdirs:
+	mkdir -p archive

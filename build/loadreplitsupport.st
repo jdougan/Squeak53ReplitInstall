@@ -1,1 +1,1 @@
-"Currently empty, This needs to file in the KnrReplitManager then save the image" ! " "
+"Currently empty, This needs to file in the KnrReplitManager then save and quit the image as scripting.image" ! Smalltalk quitPrimitive
